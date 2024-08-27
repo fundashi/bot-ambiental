@@ -19,7 +19,7 @@ descomposicion_residuos = {
 }
 
 @bot.command()
-async def impacto(ctx,objeto:str):
+async def impacto(ctx,*,objeto:str):
     objeto = objeto.lower()
     if objeto in descomposicion_residuos:
         tiempo = descomposicion_residuos[objeto]
@@ -28,7 +28,7 @@ async def impacto(ctx,objeto:str):
         if tiempo >= 100:
             await ctx.send("Porfavor reutilizar el producto o utilizar otro producto.")
     else:
-        await ctx.send("No tenemos información de {objeto}")
+        await ctx.send(f"No tenemos información de {objeto}")
 
 
 bot.run("token")
